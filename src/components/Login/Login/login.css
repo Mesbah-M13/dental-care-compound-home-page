@@ -1,0 +1,9 @@
+.from-group{
+    display: block;
+    width: 50%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #5543ca;
+    font-size: 18px;
+    outline: none;
+}

@@ -7,7 +7,7 @@ import MakeAppoinment from './MakeAppoinment/MakeAppoinment';
 import Services from './Services/Services';
 import Testimonials from './Testimonials/Testimonials';
 import ContactForm from "./ContactForm/ContactForm";
-import Footer from "./Footer/Footer";
+import Footer from "../Shared/Footer/Footer";
 
 
 
