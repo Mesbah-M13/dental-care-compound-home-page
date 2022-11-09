@@ -15,21 +15,22 @@ const Dashboard = () => {
   };
 
   const [selectedDate, setSelectedDate] = useState(new Date());
- const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
-  
   const handleDateChange = (date) => {
     setSelectedDate(date);
 
-    fetch("https://dental-care-compound-server-production.up.railway.app/appointmentsByDate", {
-      method: "POST", 
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ date })
-    })
+    fetch(
+      "https://dental-care-compound-server-production.up.railway.app/appointmentsByDate",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ date }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setAppointments(data));
   };
-
 
   return (
     <div>
@@ -39,7 +40,11 @@ const Dashboard = () => {
             <Sidebar></Sidebar>
           </div>
           <div className="col-md-5">
-            <Calendar onChange={handleDateChange} value={new Date()} />
+            <Calendar
+              onChange={handleDateChange}
+              value={new Date()}
+              locale="en-GB"
+            />
           </div>
           <div className="col-md-5">
             <AppointmentsByDate
@@ -48,7 +53,6 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };

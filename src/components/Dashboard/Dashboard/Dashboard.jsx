@@ -19,15 +19,18 @@ const Dashboard = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-  useEffect(()=>{
-    fetch("https://dental-care-compound-server-production.up.railway.app/appointmentsByDate", {
-      method: "POST", 
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({date: selectedDate })
-    })
+  useEffect(() => {
+    fetch(
+      "https://dental-care-compound-server-production.up.railway.app/appointmentsByDate",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ date: selectedDate }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setAppointments(data));
-  },[selectedDate])
+  }, [selectedDate]);
 
   return (
     <div className="  col-md-12 py-5 px-4">
@@ -36,8 +39,13 @@ const Dashboard = () => {
           <div className="col-md-2">
             <Sidebar></Sidebar>
           </div>
-          <div className="col-md-5" >
-            <Calendar className='w-100 py-5' onChange={handleDateChange} value={new Date()} />
+          <div className="col-md-5">
+            <Calendar
+              className="w-100 py-5"
+              onChange={handleDateChange}
+              value={new Date()}
+              locale="en-GB"
+            />
           </div>
           <div className="col-md-5">
             <AppointmentsByDate
@@ -51,4 +59,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
