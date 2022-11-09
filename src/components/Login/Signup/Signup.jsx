@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../../Context/AuthContext";
+import LoginImg from '../../../assets/LoginImg.png'
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -91,6 +93,9 @@ const Signup = () => {
                 </button>
               </div>
             </form>
+          </div>
+          <div className="col-md-6 d-none d-md-block align-self-end">
+            <img className="img-fluid" src={LoginImg} alt="" />
           </div>
         </div>
       </div>

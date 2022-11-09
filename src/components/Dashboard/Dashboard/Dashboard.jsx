@@ -11,7 +11,6 @@ const Dashboard = () => {
 
   const containerStyle = {
     backgroundColor: "#F4FDFB",
-    height: "100%",
   };
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -21,7 +20,7 @@ const Dashboard = () => {
     setSelectedDate(date);
   };
   useEffect(()=>{
-    fetch("http://localhost:5000/appointmentsByDate", {
+    fetch("https://dental-care-compound-server-production.up.railway.app/appointmentsByDate", {
       method: "POST", 
       headers: { "content-type": "application/json" },
       body: JSON.stringify({date: selectedDate })
@@ -31,14 +30,14 @@ const Dashboard = () => {
   },[selectedDate])
 
   return (
-    <div>
+    <div className="  col-md-12 py-5 px-4">
       <section>
         <div style={containerStyle} className="container-fluid row">
           <div className="col-md-2">
             <Sidebar></Sidebar>
           </div>
-          <div className="col-md-5">
-            <Calendar onChange={handleDateChange} value={new Date()} />
+          <div className="col-md-5" >
+            <Calendar className='w-100 py-5' onChange={handleDateChange} value={new Date()} />
           </div>
           <div className="col-md-5">
             <AppointmentsByDate
@@ -53,36 +52,3 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import { UserAuth } from "../../../Context/AuthContext";
-
-// const Dashboard = () => {
-//   const { user, logout } = UserAuth();
-//   const navigate = useNavigate();
-
-//   const handleLogout = async () => {
-//     try {
-//       await logout();
-//       navigate("/signup");
-//       console.log("Your are logged out at this moment");
-//     } catch (e) {
-//       console.log(e.message);
-//     }
-//   };
-//   return (
-//     <div>
-//       <p>Logged in user is: {user && user.email} </p>
-//       <section>
-//         <div className="container-fluid row">
-//           <div className="col-md-2"></div>
-//         </div>
-//       </section>
-//       <button onClick={handleLogout} className="btn btn-brand">
-//         Logout{" "}
-//       </button>{" "}
-//     </div>
-//   );
-// };
-
-// export default Dashboard;

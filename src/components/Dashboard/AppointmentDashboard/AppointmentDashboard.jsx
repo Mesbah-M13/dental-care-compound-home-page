@@ -21,7 +21,7 @@ const Dashboard = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
 
-    fetch("http://localhost:5000/appointmentsByDate", {
+    fetch("https://dental-care-compound-server-production.up.railway.app/appointmentsByDate", {
       method: "POST", 
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ date })

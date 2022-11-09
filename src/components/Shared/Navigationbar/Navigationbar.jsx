@@ -14,17 +14,16 @@ const Navigationbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Stack direction="horizontal" gap={5}>
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#about">About</Nav.Link>
-              <Nav.Link href="#dental-services">Dental Services</Nav.Link>
-              <Nav.Link className="text-white" href="#reviews">
-                Reviews
+            <Stack direction="horizontal" gap={4}>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/appointment">Appointment</Nav.Link>
+              {/* <Nav.Link href="#dental-services">Dental Services</Nav.Link> */}
+              <Nav.Link href="/login">login</Nav.Link>
+
+              <Nav.Link className="text-white" href="/dashboard/appointment">
+                Dashboard
               </Nav.Link>
-              <Nav.Link className="text-white" href="#blog">
-                Blog
-              </Nav.Link>
-              <Nav.Link className="text-white" href="#contact-us">
+              <Nav.Link className="text-white" href="/contact_us">
                 Contact Us
               </Nav.Link>
             </Stack>

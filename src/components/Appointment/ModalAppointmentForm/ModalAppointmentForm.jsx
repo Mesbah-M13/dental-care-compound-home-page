@@ -28,20 +28,23 @@ const ModalAppointmentForm = ({
   } = useForm();
   const onSubmit = (data) => {
     data.service = appointmentOn;
-    data.date =date;
+    data.date = date;
     data.created = new Date();
-    fetch("http://localhost:5000/addAppointment", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body:JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(success=>{
-      if(success){
-        closeModal();
-        alert('Apponintment created successfully')
+    fetch(
+      "https://dental-care-compound-server-production.up.railway.app/addAppointment",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
       }
-    })
+    )
+      .then((res) => res.json())
+      .then((success) => {
+        if (success) {
+          closeModal();
+          alert("Apponintment created successfully");
+        }
+      });
   };
   return (
     <div>
